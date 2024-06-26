@@ -1,0 +1,146 @@
+body{
+    background-color: #eee;
+}
+.cajaTitulos{
+    height: 75px;
+    background-color: #eee;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    padding-left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    color: #111;
+}
+.Tituloh1{
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 5px;
+    float: left;
+    padding-right: 10px;
+}
+.Titulos{
+    background-color: #eee;
+    flex-grow: 1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.3rem;
+    text-align: center;
+    padding-top: 20px;
+    width: 200px;  
+    cursor: pointer;
+    transition: 0.15s;
+}
+.Titulos:hover{
+    color: #ffd700;
+    font-size: 1.7rem;
+    
+}
+.Contactanos{
+    flex-grow: 2;
+    background-color: #eee;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.4rem;
+    text-align: center;
+    float: left ;
+}
+.Wasap{
+    margin-left: 50px;
+    margin-top: 20px;
+    width: auto;
+    height: 40%;
+    float: left;
+}
+.TitulosContactanos{
+    
+    flex-grow: 1;
+    
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    transition: 0.89s;
+    float: left;
+    
+
+}
+.cambioImg{
+    background-image: url(Imagenes/Imagen1.webp);
+    position: absolute;
+    margin-top: 100px;
+    left: 0%;
+    right: 0%;
+    background-size: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100% ;
+    height: 400px;
+    background-color: #0004;
+    transition: background-image 0.00000000000000000000000000000001s ;
+    
+}
+.image-transition {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 600px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 1s ;
+    
+}
+
+.image-enter-right {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.image-enter-left {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.image-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.flechaDerecha{
+    width: 50px;
+    float: right;
+  
+    padding-top: 150px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+.flechaDerecha:hover{
+    width: 60px;
+}
+.flechaIzquierda{
+    width: 50px;
+    float: left;
+   
+    margin-top: 150px;
+    transform: rotate(180deg);
+    transition: 0.2s;
+    cursor: pointer;
+}
+.flechaIzquierda:hover{
+    width: 60px;
+}
+.caja-de-informacion{
+    margin-top: 700px;
+    width: 100%;
+    height: 150px;
+    background-color: #0004;
+    float: left;
+    left: 0%;
+    right: 0%;
+    position: absolute;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.7rem;
+    text-align: center;
+    
+}
