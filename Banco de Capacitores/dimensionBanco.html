@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimensiones de Banco</title>
+    <link rel="stylesheet" href="Estilos.css">
+    
+</head>
+<body>
+    
+    <div class="cajaTitulos">
+        <h2 class="Tituloh1">Banco de Capacitores</h2>
+        <p class="titulos" id="Iniciobtn2">Inicio</p>   
+        <p class="titulos">Propuesta de valor</p>
+        <p class="titulos">Servicios</p>
+        <p class="titulos">Casos de exito</p>
+        <p class="dimensionBanco" >Dimension a tu banco</p>
+    </div>
+    <div class="formulariocaja">
+        <form >
+          <div id="calculadora">
+            <p>Calculadora de Banco de Capacitores para corregir bajo factor potencia.</p>
+          </div>
+          <input type="number" placeholder="KW" id="formulario1" required>
+          <input type="number" placeholder="FP ACTUAL" class="formulario" required>
+          <input type="number" placeholder="FP DESEADO"  class="formulario"required>
+          <input type="submit" value="Calcular" id="formulariobtn">
+          <p id="formText">los valores deberan introducirse en decimales. Ejemplo:</p>
+          <p class="valoresText">KW-------------------------100</p>
+          <p class="valoresText">FP ACTUAL-----------------0.69</p>
+          <p class="valoresText">FP DESEADO---------------0.92</p>
+        </form>
+    </div>
+    <div class="formulariocaja">
+        <form >
+          <div id="calculadora">
+            <p>Dimension a tu banco con residuo de luz de CFE.</p>
+          </div>
+          <input type="number" placeholder="KW" id="formulario1" required>
+          <input type="number" placeholder="FP ACTUAL" class="formulario" required>
+          <input type="number" placeholder="FP DESEADO"  class="formulario"required>
+          <input type="submit" value="Calcular" id="formulariobtn">
+          <p id="formText">los valores deberan introducirse en decimales. Ejemplo:</p>
+          <p class="valoresText">KW-------------------------100</p>
+          <p class="valoresText">FP ACTUAL-----------------0.69</p>
+          <p class="valoresText">FP DESEADO---------------0.92</p>
+        </form>
+        <script src="Funciones.js"></script>
+</body>
+</html>

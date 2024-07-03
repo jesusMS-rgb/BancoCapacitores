@@ -66,3 +66,29 @@ nextBtn.addEventListener('click', () => {
 
 intervalId = setInterval(autoSlide, 5000);
 resetProgressBar();
+
+//comando de boton para redireccionar
+const botonesDimension = document.querySelectorAll('.dimensionBanco');
+
+botonesDimension.forEach(boton => {
+  
+    boton.addEventListener('click', function() {
+    window.location.href ='dimensionBanco.html';
+  });
+});
+const Iniciobtn1 = document.getElementById('Iniciobtn1');
+
+
+  
+    Iniciobtn1.addEventListener('click', function() {
+    window.location.href ='index.html';
+});
+
+const Iniciobtn2 = document.getElementById('Iniciobtn2');
+
+
+  
+    Iniciobtn2.addEventListener('click', function() {
+    window.location.href ='index.html';
+});
+
