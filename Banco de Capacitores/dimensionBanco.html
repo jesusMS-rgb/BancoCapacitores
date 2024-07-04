@@ -11,7 +11,7 @@
     
     <div class="cajaTitulos">
         <h2 class="Tituloh1">Banco de Capacitores</h2>
-        <p class="titulos" id="Iniciobtn2">Inicio</p>   
+        <p class="iniciobtn" id="Iniciobtn2">Inicio</p>   
         <p class="titulos">Propuesta de valor</p>
         <p class="titulos">Servicios</p>
         <p class="titulos">Casos de exito</p>
@@ -22,30 +22,38 @@
           <div id="calculadora">
             <p>Calculadora de Banco de Capacitores para corregir bajo factor potencia.</p>
           </div>
-          <input type="number" placeholder="KW" id="formulario1" required>
-          <input type="number" placeholder="FP ACTUAL" class="formulario" required>
-          <input type="number" placeholder="FP DESEADO"  class="formulario"required>
-          <input type="submit" value="Calcular" id="formulariobtn">
+          <input type="number" placeholder="KW" id="formularioKD" required>
+          <input type="number" placeholder="FP ACTUAL" id="formularioFPA" class="formulario" required>
+          <input type="number" placeholder="FP DESEADO" id="formularioFPD" class="formulario"required>
+          <input type="button" onclick="calculateCapacitors()" value="Calcular" id="formulariobtn">
+          <h2 id="result"></h2>
+          <div>
           <p id="formText">los valores deberan introducirse en decimales. Ejemplo:</p>
           <p class="valoresText">KW-------------------------100</p>
           <p class="valoresText">FP ACTUAL-----------------0.69</p>
           <p class="valoresText">FP DESEADO---------------0.92</p>
+        </div>
         </form>
     </div>
+    <div>
+      <img src="Imagenes/recibocfe.jpg" id="recibocfe">
+    </div>
     <div class="formulariocaja">
-        <form >
+      <form>
           <div id="calculadora">
-            <p>Dimension a tu banco con residuo de luz de CFE.</p>
+              <p>Dimensiona tu banco con residuo de luz de CFE.</p>
           </div>
-          <input type="number" placeholder="KW" id="formulario1" required>
-          <input type="number" placeholder="FP ACTUAL" class="formulario" required>
-          <input type="number" placeholder="FP DESEADO"  class="formulario"required>
-          <input type="submit" value="Calcular" id="formulariobtn">
-          <p id="formText">los valores deberan introducirse en decimales. Ejemplo:</p>
+          <input type="number" placeholder="KW" id="formulario2KD" step="0.01" required>
+          <input type="number" placeholder="FP ACTUAL" id="formulario2FPA" class="formulario" step="0.01" min="0" max="1" required>
+          <input type="number" placeholder="FP DESEADO" id="formulario2FPD" class="formulario" step="0.01" min="0" max="1" required>
+          <input type="button" onclick="calculateCFE()" value="Calcular" id="formulariobtn2">
+          <h2 id="resultCFE"></h2>
+          <p id="formText2">Los valores deberán introducirse en decimales. Ejemplo:</p>
           <p class="valoresText">KW-------------------------100</p>
           <p class="valoresText">FP ACTUAL-----------------0.69</p>
           <p class="valoresText">FP DESEADO---------------0.92</p>
-        </form>
+      </form>
+  </div>
         <script src="Funciones.js"></script>
 </body>
 </html>

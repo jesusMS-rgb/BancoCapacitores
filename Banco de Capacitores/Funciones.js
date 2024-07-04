@@ -76,19 +76,46 @@ botonesDimension.forEach(boton => {
     window.location.href ='dimensionBanco.html';
   });
 });
-const Iniciobtn1 = document.getElementById('Iniciobtn1');
+const iniciobtn = document.querySelectorAll('.iniciobtn');
 
-
+iniciobtn.forEach(boton => {
   
-    Iniciobtn1.addEventListener('click', function() {
+    boton.addEventListener('click', function() {
     window.location.href ='index.html';
+  });
 });
 
-const Iniciobtn2 = document.getElementById('Iniciobtn2');
+function calculateCapacitors() {
+    const formularioFPA = parseFloat(document.getElementById('formularioFPA').value);
+    const formularioFPD = parseFloat(document.getElementById('formularioFPD').value);
+    const formularioKD = parseFloat(document.getElementById('formularioKD').value);
 
+    const resultElement = document.getElementById('result'); 
 
-  
-    Iniciobtn2.addEventListener('click', function() {
-    window.location.href ='index.html';
-});
+    if (!formularioFPA || !formularioFPD || !formularioKD) {
+        resultElement.innerText = 'Por favor, complete todos los campos.';
+        resultElement.classList.remove('result-valid');
+        resultElement.classList.add('result-invalid');
+        return;
+    }
+
+    if (formularioFPA >= 1 || formularioFPD >= 1 || formularioFPA <= 0 || formularioFPD <= 0 || formularioFPD <= formularioFPA) {
+        resultElement.innerText = 'Introduce valores válidos.';
+        resultElement.classList.remove('result-valid');
+        resultElement.classList.add('result-invalid');
+        return;
+    }
+
+    const formularioFPActual = Math.acos(formularioFPA);
+    const formularioFPDeseado = Math.acos(formularioFPD);
+
+    const reactivePowerCurrent = formularioKD * Math.tan(formularioFPActual);
+    const reactivePowerDesired = formularioKD * Math.tan(formularioFPDeseado);
+
+    const capacitiveKVAR = reactivePowerCurrent - reactivePowerDesired;
+
+    resultElement.innerText = `Requiere: ${capacitiveKVAR.toFixed(2)} KVAR`;
+    resultElement.classList.remove('result-invalid');
+    resultElement.classList.add('result-valid');
+}
 
