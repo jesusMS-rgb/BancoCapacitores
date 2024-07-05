@@ -81,9 +81,32 @@ const iniciobtn = document.querySelectorAll('.iniciobtn');
 iniciobtn.forEach(boton => {
   
     boton.addEventListener('click', function() {
-    window.location.href ='index.html';
+    window.location.href ='index.html';        
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('monthly-inputs').innerHTML = generateMonthlyInputs();
+});
+
+function generateMonthlyInputs() {
+    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    let html = '';
+
+    months.forEach((month, index) => {
+        html += `
+            <div>
+                <h3>${month}</h3>
+                <input type="number" placeholder="Consumo (kW)" id="formulario${month}KW" step="0.01" required>
+                <input type="number" placeholder="FP ACTUAL" id="formulario${month}FPA" step="0.01" min="0" max="1" required>
+                <input type="number" placeholder="FP DESEADO" id="formulario${month}FPD" step="0.01" min="0" max="1" required>
+            </div>
+        `;
+    });
+
+    return html;
+}
+
 
 function calculateCapacitors() {
     const formularioFPA = parseFloat(document.getElementById('formularioFPA').value);
@@ -118,4 +141,41 @@ function calculateCapacitors() {
     resultElement.classList.remove('result-invalid');
     resultElement.classList.add('result-valid');
 }
+function calculateCFE() {
+    const resultElementCFE = document.getElementById('resultCFE');
+
+    const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    let totalKW = 0;
+    let totalReactivePowerCurrent = 0;
+    let totalReactivePowerDesired = 0;
+
+    for (let month of months) {
+        const kw = parseFloat(document.getElementById(`formulario${month}KW`).value);
+        const fpa = parseFloat(document.getElementById(`formulario${month}FPA`).value);
+        const fpd = parseFloat(document.getElementById(`formulario${month}FPD`).value);
+
+        if (isNaN(kw) || isNaN(fpa) || isNaN(fpd) || kw <= 0 || fpa <= 0 || fpd <= 0 || fpa >= 1 || fpd >= 1 || fpd <= fpa) {
+            resultElementCFE.innerText = `Por favor, introduce valores válidos para ${month}.`;
+            resultElementCFE.classList.remove('result-valid');
+            resultElementCFE.classList.add('result-invalid');
+            return;  
+        }
+
+        totalKW += kw;
+
+        const fpActual = Math.acos(fpa);
+        const fpDeseado = Math.acos(fpd);
+
+        totalReactivePowerCurrent += kw * Math.tan(fpActual);
+        totalReactivePowerDesired += kw * Math.tan(fpDeseado);
+    }
+
+    const capacitiveKVAR = totalReactivePowerCurrent - totalReactivePowerDesired;
+
+    resultElementCFE.innerText = `Capacidad requerida del banco de capacitores: ${capacitiveKVAR.toFixed(2)} kVAR`;
+    resultElementCFE.classList.remove('result-invalid');
+    resultElementCFE.classList.add('result-valid');
+}
+
+   
 
